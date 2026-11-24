@@ -1,0 +1,32 @@
+name: Vena
+version: "0.0.1"
+slug: vena
+description: Interfață HUD pentru Home Assistant
+url: https://github.com/danielvinersar21/vena-assistant
+# Imagine pre-construită multi-arch (amd64 + aarch64). Tag-ul = version.
+image: ghcr.io/danielvinersar21/vena
+arch:
+  - amd64
+  - aarch64
+# Imaginile de bază HA au propriul init (S6); procesul rulează ca CMD.
+init: false
+ingress: true
+ingress_port: 8099
+panel_icon: mdi:hexagon-outline
+panel_title: Vena
+homeassistant_api: true
+options:
+  assistant_name: Vena
+  background_pattern: hex
+  background_strength: 45
+  protected_entities: []
+  read_only_entities: []
+schema:
+  assistant_name: str
+  user_name: "str?"
+  background_pattern: list(hex|grid|dots|none)
+  background_strength: int(0,100)
+  protected_entities:
+    - str
+  read_only_entities:
+    - str
